@@ -1,0 +1,48 @@
+[2022-09-08T18:14:21.563+0500] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: expectation_dag.expectation3 manual__2022-09-08T13:14:11.694907+00:00 [queued]>
+[2022-09-08T18:14:21.568+0500] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: expectation_dag.expectation3 manual__2022-09-08T13:14:11.694907+00:00 [queued]>
+[2022-09-08T18:14:21.568+0500] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-08T18:14:21.568+0500] {taskinstance.py:1369} INFO - Starting attempt 1 of 1
+[2022-09-08T18:14:21.568+0500] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-08T18:14:21.583+0500] {taskinstance.py:1389} INFO - Executing <Task(PythonOperator): expectation3> on 2022-09-08 13:14:11.694907+00:00
+[2022-09-08T18:14:21.588+0500] {standard_task_runner.py:52} INFO - Started process 1060212 to run task
+[2022-09-08T18:14:21.590+0500] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'expectation_dag', 'expectation3', 'manual__2022-09-08T13:14:11.694907+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/expectation_dag.py', '--cfg-path', '/tmp/tmp5d_te0fq', '--error-file', '/tmp/tmp6sm79s4y']
+[2022-09-08T18:14:21.590+0500] {standard_task_runner.py:80} INFO - Job 22: Subtask expectation3
+[2022-09-08T18:14:21.639+0500] {task_command.py:371} INFO - Running <TaskInstance: expectation_dag.expectation3 manual__2022-09-08T13:14:11.694907+00:00 [running]> on host shahroze
+[2022-09-08T18:14:21.696+0500] {taskinstance.py:1581} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=expectation_dag
+AIRFLOW_CTX_TASK_ID=expectation3
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-08T13:14:11.694907+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-08T13:14:11.694907+00:00
+[2022-09-08T18:14:21.702+0500] {logging_mixin.py:115} INFO - {
+  "expectation_config": {
+    "meta": {},
+    "kwargs": {
+      "column": "trip_distance",
+      "min_value": 0,
+      "max_value": 3,
+      "result_format": "BASIC"
+    },
+    "expectation_type": "expect_column_min_to_be_between"
+  },
+  "meta": {},
+  "exception_info": {
+    "raised_exception": false,
+    "exception_traceback": null,
+    "exception_message": null
+  },
+  "result": {
+    "observed_value": 0.0,
+    "element_count": 10000,
+    "missing_count": null,
+    "missing_percent": null
+  },
+  "success": true
+}
+[2022-09-08T18:14:21.702+0500] {python.py:173} INFO - Done. Returned value was: None
+[2022-09-08T18:14:21.708+0500] {taskinstance.py:1407} INFO - Marking task as SUCCESS. dag_id=expectation_dag, task_id=expectation3, execution_date=20220908T131411, start_date=20220908T131421, end_date=20220908T131421
+[2022-09-08T18:14:21.761+0500] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-09-08T18:14:21.780+0500] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check

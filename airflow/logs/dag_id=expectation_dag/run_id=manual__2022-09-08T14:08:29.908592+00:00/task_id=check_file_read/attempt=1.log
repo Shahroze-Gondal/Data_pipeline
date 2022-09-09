@@ -1,0 +1,34 @@
+[2022-09-08T19:08:33.166+0500] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: expectation_dag.check_file_read manual__2022-09-08T14:08:29.908592+00:00 [queued]>
+[2022-09-08T19:08:33.171+0500] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: expectation_dag.check_file_read manual__2022-09-08T14:08:29.908592+00:00 [queued]>
+[2022-09-08T19:08:33.171+0500] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-08T19:08:33.171+0500] {taskinstance.py:1369} INFO - Starting attempt 1 of 1
+[2022-09-08T19:08:33.171+0500] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-08T19:08:33.185+0500] {taskinstance.py:1389} INFO - Executing <Task(PythonOperator): check_file_read> on 2022-09-08 14:08:29.908592+00:00
+[2022-09-08T19:08:33.189+0500] {standard_task_runner.py:52} INFO - Started process 1074476 to run task
+[2022-09-08T19:08:33.191+0500] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'expectation_dag', 'check_file_read', 'manual__2022-09-08T14:08:29.908592+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/expectation_dag.py', '--cfg-path', '/tmp/tmp3nn77vrh', '--error-file', '/tmp/tmpj83z1tq5']
+[2022-09-08T19:08:33.191+0500] {standard_task_runner.py:80} INFO - Job 38: Subtask check_file_read
+[2022-09-08T19:08:33.225+0500] {task_command.py:371} INFO - Running <TaskInstance: expectation_dag.check_file_read manual__2022-09-08T14:08:29.908592+00:00 [running]> on host shahroze
+[2022-09-08T19:08:33.269+0500] {taskinstance.py:1581} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=expectation_dag
+AIRFLOW_CTX_TASK_ID=check_file_read
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-08T14:08:29.908592+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-08T14:08:29.908592+00:00
+[2022-09-08T19:08:33.270+0500] {taskinstance.py:1902} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/usr/local/lib/python3.10/dist-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/shahroze/airflow/dags/expectations.py", line 11, in check_file
+    if not df:
+  File "/home/shahroze/.local/lib/python3.10/site-packages/pandas/core/generic.py", line 1527, in __nonzero__
+    raise ValueError(
+ValueError: The truth value of a PandasDataset is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+[2022-09-08T19:08:33.274+0500] {taskinstance.py:1407} INFO - Marking task as FAILED. dag_id=expectation_dag, task_id=check_file_read, execution_date=20220908T140829, start_date=20220908T140833, end_date=20220908T140833
+[2022-09-08T19:08:33.285+0500] {standard_task_runner.py:92} ERROR - Failed to execute job 38 for task check_file_read (The truth value of a PandasDataset is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().; 1074476)
+[2022-09-08T19:08:33.323+0500] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-09-08T19:08:33.349+0500] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check

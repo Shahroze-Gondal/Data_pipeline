@@ -1,0 +1,32 @@
+[2022-09-08T18:13:47.148+0500] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: expectation_dag.expectation3 manual__2022-09-08T13:13:37.943055+00:00 [queued]>
+[2022-09-08T18:13:47.153+0500] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: expectation_dag.expectation3 manual__2022-09-08T13:13:37.943055+00:00 [queued]>
+[2022-09-08T18:13:47.153+0500] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-08T18:13:47.153+0500] {taskinstance.py:1369} INFO - Starting attempt 1 of 1
+[2022-09-08T18:13:47.153+0500] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-08T18:13:47.168+0500] {taskinstance.py:1389} INFO - Executing <Task(PythonOperator): expectation3> on 2022-09-08 13:13:37.943055+00:00
+[2022-09-08T18:13:47.174+0500] {standard_task_runner.py:52} INFO - Started process 1060008 to run task
+[2022-09-08T18:13:47.176+0500] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'expectation_dag', 'expectation3', 'manual__2022-09-08T13:13:37.943055+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/expectation_dag.py', '--cfg-path', '/tmp/tmpsymebfhg', '--error-file', '/tmp/tmpyqpxb9cc']
+[2022-09-08T18:13:47.177+0500] {standard_task_runner.py:80} INFO - Job 17: Subtask expectation3
+[2022-09-08T18:13:47.212+0500] {task_command.py:371} INFO - Running <TaskInstance: expectation_dag.expectation3 manual__2022-09-08T13:13:37.943055+00:00 [running]> on host shahroze
+[2022-09-08T18:13:47.258+0500] {taskinstance.py:1581} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=expectation_dag
+AIRFLOW_CTX_TASK_ID=expectation3
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-08T13:13:37.943055+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-08T13:13:37.943055+00:00
+[2022-09-08T18:13:47.259+0500] {taskinstance.py:1902} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/usr/local/lib/python3.10/dist-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/shahroze/airflow/dags/expectations.py", line 16, in expectation3
+    print(df.expect_column_min_to_be_between('trip_distance',0, 3))
+NameError: name 'df' is not defined
+[2022-09-08T18:13:47.262+0500] {taskinstance.py:1407} INFO - Marking task as FAILED. dag_id=expectation_dag, task_id=expectation3, execution_date=20220908T131337, start_date=20220908T131347, end_date=20220908T131347
+[2022-09-08T18:13:47.274+0500] {standard_task_runner.py:92} ERROR - Failed to execute job 17 for task expectation3 (name 'df' is not defined; 1060008)
+[2022-09-08T18:13:47.308+0500] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-09-08T18:13:47.320+0500] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check
